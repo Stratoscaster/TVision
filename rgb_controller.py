@@ -39,7 +39,7 @@ class RGBController:
             edge = edges[name]
             for i in range(len(edge)):
                 if index >= self.NUM_LEDS:
-                    print('end of strand')
+                    # print('end of strand')
                     self.pixels.show()
                     return
 
