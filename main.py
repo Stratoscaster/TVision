@@ -24,7 +24,7 @@ result = None
 
 # cv.imwrite('test_result.jpg', frame)
 frame = cap.next_frame()
-frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+# frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
 keypressed = cv.waitKey(1)
 while keypressed != ord('q'):
 
