@@ -72,7 +72,7 @@ class FrameController:
             'x2': width - 2,
             'y2': height - 2
         }
-        print(rectPos)
+        # print(rectPos)
         if self.draw_rect:
             cv.rectangle(frame, (rectPos['x1'], rectPos['y1']), (rectPos['x2'], rectPos['y2']), (0, 0, 0), -1)
 
@@ -114,8 +114,8 @@ class FrameController:
 
         actual_length = len(top_edge) + len(right_edge) + len(bottom_edge) + len(left_edge)
         expected_length = (width) + (height - 1) + (width - 1) + (height - 2)
-        print('expected strand length:', expected_length)
-        print('actual strand length:', actual_length)
+        # print('expected strand length:', expected_length)
+        # print('actual strand length:', actual_length)
 
         edges = {
             'top': top_edge,

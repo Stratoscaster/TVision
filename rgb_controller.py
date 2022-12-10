@@ -1,7 +1,6 @@
 import cv2 as cv
 import numpy as np
 
-
 # DISABLE FOR PC testing
 import board
 import neopixel as neo
@@ -32,7 +31,6 @@ class RGBController:
         '''
         self.EDGE_ORDER = ['top', 'right', 'bottom', 'left']
 
-
     def update_strand(self, edges: dict):
         index = self.STRAND_OFFSET
         # Access edge names in correct order
@@ -43,4 +41,5 @@ class RGBController:
                     return
                 self.pixels[index] = pixel
                 index += 1
+        print(edges)
         self.pixels.show()
