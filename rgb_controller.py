@@ -53,5 +53,5 @@ class RGBController:
             self.pixels[48 + 27] = DEBUG_COLOR
             self.pixels[48 + 27 + 48] = DEBUG_COLOR
 
-        print(edges)
+        # print(edges)
         self.pixels.show()
