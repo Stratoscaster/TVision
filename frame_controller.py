@@ -63,6 +63,7 @@ class FrameController:
 
     def toggle_rect(self):
         self.draw_rect = not self.draw_rect
+        self.rgb.debug = self.draw_rect
 
     def process_frame(self, frame: list):
         height, width = frame.shape[:2]

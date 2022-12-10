@@ -10,6 +10,7 @@ class RGBController:
 
     def __init__(self, num_leds=150):
         self.NUM_LEDS = num_leds
+        self.debug = False
         self.pixels = neo.NeoPixel(board.D18, self.NUM_LEDS, auto_write=False)
         # self.pixels = []
         self.STRAND_OFFSET = 0
@@ -29,18 +30,23 @@ class RGBController:
             If you say top, right, bottom, left...
             Then the strand MUST start at the top-left and go clockwise 
         '''
-        self.EDGE_ORDER = ['top', 'right', 'bottom', 'left']
+        self.EDGE_ORDER = ['bottom', 'left', 'top', 'right']
 
     def update_strand(self, edges: dict):
         index = self.STRAND_OFFSET
         # Access edge names in correct order
         for name in self.EDGE_ORDER:
-            for pixel in edges[name]:
+            edge = edges[name]
+            for i in range(len(edge)):
                 if index >= self.NUM_LEDS:
                     print('end of strand')
                     self.pixels.show()
                     return
-                self.pixels[index] = pixel
+
+                if self.debug:
+                    if i == len(edge) - 1 or i == 0:
+                        edge[i] == (0, 255, 0)
+                self.pixels[index] = edge[i]
                 index += 1
         print(edges)
         self.pixels.show()
