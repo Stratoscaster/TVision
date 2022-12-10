@@ -2,17 +2,17 @@ import cv2 as cv
 import numpy as np
 
 
-# DISABLED FOR PC testing
-# import board
-# import neopixel as neo
+# DISABLE FOR PC testing
+import board
+import neopixel as neo
 
 
 class RGBController:
 
     def __init__(self, num_leds=150):
         self.NUM_LEDS = num_leds
-        # self.pixels = neo.NeoPixel(board.D18, self.NUM_LEDS)
-        self.pixels = []
+        self.pixels = neo.NeoPixel(board.D18, self.NUM_LEDS)
+        # self.pixels = []
         self.STRAND_OFFSET = 0
         if type(self.pixels) == 'list':
             print('YOU FORGOT TO RE-ENABLE NEOPIXEL & BOARD LIBRARIES')
