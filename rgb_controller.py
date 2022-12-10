@@ -43,11 +43,16 @@ class RGBController:
                     self.pixels.show()
                     return
 
-                if self.debug:
-                    if i == len(edge) - 1 or i == 0:
-                        edge[i] = (0, 255, 0)
-
                 self.pixels[index] = edge[i]
                 index += 1
+
+        if self.debug:
+            print('Showing edge boundaries on strip')
+            DEBUG_COLOR = (0, 0, 0)
+            self.pixels[0] = DEBUG_COLOR
+            self.pixels[48] = DEBUG_COLOR
+            self.pixels[48 + 27] = DEBUG_COLOR
+            self.pixels[48 + 27 + 48] = DEBUG_COLOR
+
         print(edges)
         self.pixels.show()
