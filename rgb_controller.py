@@ -45,7 +45,8 @@ class RGBController:
 
                 if self.debug:
                     if i == len(edge) - 1 or i == 0:
-                        edge[i] == (0, 255, 0)
+                        edge[i] = (0, 255, 0)
+
                 self.pixels[index] = edge[i]
                 index += 1
         print(edges)
