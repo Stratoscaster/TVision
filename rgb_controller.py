@@ -34,12 +34,13 @@ class RGBController:
     def update_strand(self, edges: dict):
         index = self.STRAND_OFFSET
         # Access edge names in correct order
+        print(edges)
         for name in self.EDGE_ORDER:
             for pixel in edges[name]:
-                if index >= self.NUM_LEDS:
+                if index > self.NUM_LEDS:
                     print('end of strand')
+                    self.pixels.show()
                     return
                 self.pixels[index] = pixel
                 index += 1
-        print(edges)
         self.pixels.show()
