@@ -35,6 +35,7 @@ class RGBController:
     def update_strand(self, edges: dict):
         index = self.STRAND_OFFSET
         # Access edge names in correct order
+        print('edge final', edges['top'][0])
         for name in self.EDGE_ORDER:
             edge = edges[name]
             for i in range(len(edge)):

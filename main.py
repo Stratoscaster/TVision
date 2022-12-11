@@ -26,17 +26,17 @@ result = None
 
 # cv.imwrite('test_result.jpg', frame)
 frame = cap.next_frame()
-frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+# frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
 keypressed = cv.waitKey(1)
 while keypressed != ord('q'):
 
     if isinstance(frame, np.ndarray):
         # grab first row of pixels
         frame = cap.next_frame()
-        frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+        # frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
         result = frame_con.process_frame_and_update_rgb(frame)
         cv.imshow('resultant frame', frame)
-
+        print('frame initial',frame[0][0])
         if keypressed == ord('s'):
             print('Saving frame as JPG.')
             cv.imwrite(f'test_result{rand.randint(1,1000000)}.jpg', frame)
