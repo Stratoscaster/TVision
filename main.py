@@ -1,4 +1,4 @@
-SCALE = 0.025
+SCALE = 0.05
 width = int(1920 * SCALE)
 height = int(1080 * SCALE)
 print(f'Capturing Camera @ {width}x{height}')

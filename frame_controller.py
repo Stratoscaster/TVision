@@ -12,20 +12,24 @@ class FrameController:
         self.representation = []
         self.draw_rect = False
         self.NUM_LEDS = 150
+        self.edge_length = 0
         self.rgb = RGBController(self.NUM_LEDS)
 
     # Take our 96x54x96x54 edge and convert to the LED edge lengths 48x27x48x27 (half length)
     # Note, to generalize this, the algorithm will need to be rewritten
     def condense_frame_edge(self, edges: dict):
+        self.edge_length = 0
         condensed = {}
         for edge_name in edges.keys():
             edge = edges[edge_name]
+            self.edge_length += len(edge)
             condensed_edge = []
             for i in range(0, len(edge) - 1, 2):
                 pix1 = edge[i]
                 pix2 = edge[i + 1]
                 condensed_edge.append(self.lab_color_space_average(pix1, pix2))
             condensed[edge_name] = condensed_edge
+        print(f'Condensed edge length:{self.edge_length}')
         return condensed
 
     # According to color theory you cannot just regular average RGB values, you must do it according to the following formula (quadratic mean)
