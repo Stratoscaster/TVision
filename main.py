@@ -11,7 +11,6 @@ from numpy import random as rand
 
 cap = CameraCapture(width, height)
 
-
 # print(frame)
 # cv.imshow('frame', frame)
 #
@@ -35,18 +34,17 @@ while keypressed != ord('q'):
         frame = cap.next_frame()
         frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
         result = frame_con.process_frame_and_update_rgb(frame)
-        cv.imshow('resultant frame', frame)
-        print('frame initial',frame[0][0])
+        cv.imshow('resultant frame', cv.resize(frame, (height * 3, width * 3)))
+        print('frame initial', frame[0][0])
         if keypressed == ord('s'):
             print('Saving frame as JPG.')
-            cv.imwrite(f'test_result{rand.randint(1,1000000)}.jpg', frame)
+            cv.imwrite(f'test_result{rand.randint(1, 1000000)}.jpg', frame)
 
         if keypressed == ord('r'):
             print('Toggling rectangle.')
             frame_con.toggle_rect()
 
     keypressed = cv.waitKey(1)
-
 
 cv.destroyAllWindows()
 
