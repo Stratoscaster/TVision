@@ -1,14 +1,16 @@
+SCALE = 0.025
+width = int(1920 * SCALE)
+height = int(1080 * SCALE)
+print(f'Capturing Camera @ {width}x{height}')
 import cv2 as cv
 import sys
 from camera_capture import CameraCapture
 from frame_controller import FrameController
 import numpy as np
 from numpy import random as rand
-SCALE = 0.05
-width = int(1920 * SCALE)
-height = int(1080 * SCALE)
+
 cap = CameraCapture(width, height)
-print(f'Capturing Camera @ {width}x{height}')
+
 
 # print(frame)
 # cv.imshow('frame', frame)

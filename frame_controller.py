@@ -42,6 +42,7 @@ class FrameController:
         edges = self.process_frame(frame)
         # Step 2: Condense each array of pixels into led values matching the led edge length
         condensed_edges = self.condense_frame_edge(edges)
+        condensed_edges = edges
         self.rgb.update_strand(condensed_edges)
 
         # Old debug code don't use it
