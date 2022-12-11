@@ -33,7 +33,7 @@ while keypressed != ord('q'):
     if isinstance(frame, np.ndarray):
         # grab first row of pixels
         frame = cap.next_frame()
-        # frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+        frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
         result = frame_con.process_frame_and_update_rgb(frame)
         cv.imshow('resultant frame', frame)
         print('frame initial',frame[0][0])
