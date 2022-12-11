@@ -34,7 +34,7 @@ while keypressed != ord('q'):
         frame = cap.next_frame()
         # frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
         result = frame_con.process_frame_and_update_rgb(frame)
-        cv.imshow('resultant frame', cv.resize(frame, (height * 3, width * 3)))
+        cv.imshow('resultant frame', cv.resize(frame, (width*5, height*5)))
         print('frame initial', frame[0][0])
         if keypressed == ord('s'):
             print('Saving frame as JPG.')
