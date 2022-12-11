@@ -11,7 +11,7 @@ class RGBController:
     def __init__(self, num_leds=150):
         self.NUM_LEDS = num_leds
         self.debug = False
-        self.pixels = neo.NeoPixel(board.D18, self.NUM_LEDS, auto_write=False, pixel_order=neo.RGB)
+        self.pixels = neo.NeoPixel(board.D18, self.NUM_LEDS, auto_write=False, pixel_order='BGR')
         # self.pixels = []
         self.STRAND_OFFSET = 0
         if type(self.pixels) == 'list':
